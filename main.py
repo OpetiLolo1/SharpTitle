@@ -1,17 +1,17 @@
 from tkinter import *
 
-window = Tk()
+class OpeningWindow:
 
-window.title("a bunch of code")
+  def __init__(self, parent):
 
-window.geometry('350x200')
 
-lbl = Label(window, text="Hello scrubs", bg="grey", fg="brown",font=("Arial Bold", 20)  )
 
-lbl.grid(column=0, row=0)
+   def start(self): 
+      self.quiz_frame.destroy
+      RegisterWindow(root)
 
-btn = Button(window, text="Click Me lol", bg="orange", fg="red",font=("Arial Bold", 15)  )
 
-btn.grid(column=1, row=0)
-
-window.mainloop()
+if __name__ == '__main__': 
+    root = Tk()
+    root.title('MRGS Chromebook Booking')
+    root.mainloop()
