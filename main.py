@@ -35,7 +35,7 @@ class OpeningWindow: #first window
 
 #I moved it from the bottom to here so you know this is the point to control all frames to follow
 
-class MainAppWindow(Tk): #main window opens second
+class MainAppWindow(Tk): #main window conrols all frames, opens second 
 
    def __init__(self, *args, **kwargs):
 
@@ -72,31 +72,31 @@ class MainAppWindow(Tk): #main window opens second
       self.title("MRGS Chromebook Booking")
 
 
-class RegisterFrame(Frame):# this frame sits on the Application window
+class RegisterFrame(Frame):# this frame sits on the Main App window
 
       def __init__(self, parent, controller):
 
          Frame.__init__(self, parent)
 
-         self.border = LabelFrame(self, text='Login', bg='ivory', bd = 10, font=("Arial", 20))
+         self.border = LabelFrame(self, text='Login', fg='white', bg='red3', bd = 10, font=("Arial", 20))
 
-         self.border.pack(fill="both", expand="yes", padx = 150, pady=150)
+         self.border.pack(fill="both", expand="yes", padx = 0, pady= 100)
 
-         self.user_label = Label(self.border, text="Username", font=("Arial Bold", 15), bg='ivory')
+         self.user_label = Label(self.border, text="Username", fg='white', font=("Helvetica Bold", 18), bg='red3')
 
-         self.user_label.place(x=50, y=20)
+         self.user_label.place(x=200, y=80)
 
          self.user_entry = Entry(self.border, width = 30, bd = 5)
 
-         self.user_entry.place(x=180, y=20)
+         self.user_entry.place(x=340, y=80)
 
-         self.password_label = Label(self.border, text="Password", font=("Arial Bold", 15), bg='ivory')
+         self.password_label = Label(self.border, text="Password", fg='white', font=("Helvetica Bold", 18), bg='red3')
 
-         self.password_label.place(x=50, y=80)
+         self.password_label.place(x=200, y=125)
 
          self.password_entry = Entry(self.border, width = 30, show='*', bd = 5)
 
-         self.password_entry.place(x=180, y=80)
+         self.password_entry.place(x=340, y=125)
 
          def verify():
 
@@ -126,15 +126,15 @@ class RegisterFrame(Frame):# this frame sits on the Application window
 
             except:
 
-               messagebox.showinfo("Error", "Couldnt open file")
+               messagebox.showinfo("Error", "Incorrect details")
 
  
 
  
 
-         self.submitbutton = Button(self.border, text="Submit", font=("Arial", 15), command=verify)
+         self.submitbutton = Button(self.border, text="Submit", fg='white', bg='green', font=("Helvetica", 15), command=verify)
 
-         self.submitbutton.place(x=320, y=115)
+         self.submitbutton.place(x=660, y=200)
 
  
 
@@ -144,37 +144,37 @@ class RegisterFrame(Frame):# this frame sits on the Application window
 
             register_window.resizable(0,0)
 
-            register_window.configure(bg="ivory")
+            register_window.configure(bg="red3")
 
             register_window.title("Register")
 
-            reg_name_label = Label(register_window, text="Username:", font=("Arial",15), bg="deep sky blue")
+            reg_name_label = Label(register_window, text="Username:", fg='white', font=("Helvetica",15), bg="red3")
 
             reg_name_label.place(x=10, y=10)
 
             reg_name_entry = Entry(register_window, width=30, bd=5)
 
-            reg_name_entry.place(x = 200, y=10)
+            reg_name_entry.place(x = 220, y=10)
 
  
 
-            reg_password_label = Label(register_window, text="Password:", font=("Arial",15), bg="deep sky blue")
+            reg_password_label = Label(register_window, text="Password:", fg='white', font=("Helvetica",15), bg="red3")
 
             reg_password_label.place(x=10, y=60)
 
             reg_password_entry = Entry(register_window, width=30, show="*", bd=5)
 
-            reg_password_entry.place(x = 200, y=60)
+            reg_password_entry.place(x = 220, y=60)
 
  
 
-            confirm_password_label = Label(register_window, text="Confirm Password:", font=("Arial",15), bg="deep sky blue")
+            confirm_password_label = Label(register_window, text="Confirm Password:", fg='white', font=("Helvetica",15), bg="red3")
 
             confirm_password_label.place(x=10, y=110)
 
             confirm_password_entry = Entry(register_window, width=30, show="*", bd=5)
 
-            confirm_password_entry.place(x = 200, y=110)
+            confirm_password_entry.place(x = 220, y=110)
 
  
 
@@ -202,19 +202,19 @@ class RegisterFrame(Frame):# this frame sits on the Application window
 
  
 
-            self.register_button = Button(register_window, text="Sign in", font=("Arial",15), bg="#ffc22a", command=check)
+            self.register_button = Button(register_window, text="Sign in", fg='white', font=("Arial",15), bg="orange", command=check)
 
-            self.register_button.place(x=170, y=150)
+            self.register_button.place(x=375, y=160)
 
  
 
-            register_window.geometry("470x220")
+            register_window.geometry("500x220")
 
             register_window.mainloop()
 
  
 
-         self.register_button = Button(self, text="Register", bg = "dark orange", font=("Arial",15), command=register)
+         self.register_button = Button(self, text="Register", fg='white', bg = "orange", font=("Helvetica",15), command=register)
 
          self.register_button.place(x=650, y=20)
 
