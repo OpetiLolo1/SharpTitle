@@ -128,7 +128,7 @@ class RegisterFrame(Frame):# this frame sits on the Main App window
  
             def check():
 
-               if reg_name_entry.get()!="" or reg_password_entry.get()!="" or confirm_password_entry.get()!="":
+               if reg_name_entry.get()!="" and reg_password_entry.get()!="" and confirm_password_entry.get()!="":
                   if reg_password_entry.get()==confirm_password_entry.get():
                      with open("UsersIDandPassword.txt", "a") as f:
                         f.write(reg_name_entry.get()+","+reg_password_entry.get()+"\n")
@@ -177,7 +177,7 @@ class Second(Frame):
       self.back_button = Button(self, text="Back", fg='white', bg='red', font=("Arial", 15), command=lambda: controller.show_frame(RegisterFrame))
       self.back_button.place(x=100, y=450)
 
-        
+  
 
 #A lambda function is a small anonymous function(usually we dont need to reuse it)
 
@@ -189,15 +189,15 @@ class Third(Frame):
       Frame.__init__(self, parent)
 
       self.configure(bg='gold2')
+
+      self.border = LabelFrame(self, fg='white', bg='red3', bd = 10, font=('Helvetica', '25', 'bold'))
+      self.border.pack(fill="both", expand="yes", padx = 0, pady= 100)
  
-      self.app_label = Label(self, text="Store some content related to your \n project or what your application made for. \n All the best!!", bg = "gold2", font=("Arial Bold", 25))
-      self.app_label.place(x=40, y=150)
+      self.app_label = Label(self, text="Thank you for booking \n Please head to B6 to pick up your chromebook.", bg = "red3", fg='white', font=("Arial Bold", 20))
+      self.app_label.place(x=90, y=170)
 
-      self.home_button = Button(self, text="Home", font=("Arial", 15), command=lambda: controller.show_frame(Start))
+      self.home_button = Button(self, text="Home", bg='green', fg='white', font=("Arial", 15), command=lambda: controller.show_frame(RegisterFrame))
       self.home_button.place(x=650, y=450) 
-
-      self.back_button = Button(self, text="Back", font=("Arial", 15), command=lambda: controller.show_frame(Second))
-      self.back_button.place(x=100, y=450)
 
  
 
